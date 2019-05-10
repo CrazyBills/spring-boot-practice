@@ -1,12 +1,13 @@
 package com.ecommerce.order.product;
 
-import com.ecommerce.order.common.ddd.AggregateRoot;
+import com.ecommerce.order.common.utils.UuidGenerator;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
-public class Product implements AggregateRoot {
-    private ProductId id;
+public class Product {
+
+    private String id;
     private String name;
     private String description;
     private BigDecimal price;
@@ -16,7 +17,7 @@ public class Product implements AggregateRoot {
     }
 
     private Product(String name, String description, BigDecimal price) {
-        this.id = ProductId.newProductId();
+        this.id = UuidGenerator.newUuid();
         this.name = name;
         this.description = description;
         this.price = price;
@@ -27,7 +28,19 @@ public class Product implements AggregateRoot {
         return new Product(name, description, price);
     }
 
-    public ProductId getId() {
+    public String getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 }

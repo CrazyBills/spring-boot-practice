@@ -1,12 +1,11 @@
 package com.ecommerce.order.product;
 
-import com.ecommerce.order.common.ddd.Identity;
-
+import java.io.Serializable;
 import java.util.Objects;
 
 import static com.ecommerce.order.common.utils.UuidGenerator.newUuid;
 
-public class ProductId implements Identity {
+public class ProductId implements Serializable {
     private String id;
 
     private ProductId() {

@@ -1,9 +1,7 @@
 package com.ecommerce.order.about;
 
 
-import com.ecommerce.order.common.logging.RequestIdAwareRepresentation;
-
-public class AboutRepresentation extends RequestIdAwareRepresentation {
+public class AboutRepresentation {
     private String buildNumber;
     private String buildTime;
     private String deployTime;

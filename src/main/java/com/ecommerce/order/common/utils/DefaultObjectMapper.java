@@ -3,12 +3,14 @@ package com.ecommerce.order.common.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.io.Writer;
 
 /**
  * ObjectMapper that converts check exceptions to RuntimeException
  */
+@Service
 public final class DefaultObjectMapper extends ObjectMapper {
 
     @Override
