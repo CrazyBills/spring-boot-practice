@@ -19,5 +19,14 @@ class AboutControllerApiTest extends BaseApiTest {
                 .body("author", is("tw"));
     }
 
-
+    @Test
+    public void should_display_authors_address() {
+        given()
+                .when()
+                .get("/about")
+                .then()
+                .statusCode(200)
+                .body("deployTime", containsString("Asia/Shanghai"))
+                .body("company", is("ThoughtWorks"));
+    }
 }
