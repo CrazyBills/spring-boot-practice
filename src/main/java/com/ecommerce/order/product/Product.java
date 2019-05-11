@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 public class Product {
-
     private String id;
     private String name;
     private String description;
@@ -14,6 +13,14 @@ public class Product {
     private Instant createdAt;
 
     private Product() {
+    }
+
+    public Product(String id, String name, String description, BigDecimal price, Instant createdAt) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.createdAt = createdAt;
     }
 
     private Product(String name, String description, BigDecimal price) {
@@ -26,6 +33,10 @@ public class Product {
 
     public static Product create(String name, String description, BigDecimal price) {
         return new Product(name, description, price);
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
     }
 
     public String getId() {

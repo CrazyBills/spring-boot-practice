@@ -2,6 +2,7 @@ package com.ecommerce.order.product;
 
 import com.ecommerce.order.common.utils.PagedResource;
 import com.ecommerce.order.product.representation.ProductSummaryRepresentation;
+import com.google.common.collect.ImmutableMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,12 +29,12 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public String createProduct(@RequestBody @Valid CreateProductCommand command) {
+    public ImmutableMap<String, String> createProduct(@RequestBody @Valid CreateProductCommand command) {
 
 
         Product product = Product.create(command.getName(), command.getDescription(), command.getPrice());
 
-        return productApplicationService.createProduct(product).getId();
+        return ImmutableMap.of("id", productApplicationService.createProduct(product).getId());
     }
 
     @GetMapping

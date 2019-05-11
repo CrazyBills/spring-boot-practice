@@ -18,4 +18,52 @@ public class AboutRepresentation {
         this.environment = environment;
     }
 
+    public String getBuildNumber() {
+        return buildNumber;
+    }
+
+    public void setBuildNumber(String buildNumber) {
+        this.buildNumber = buildNumber;
+    }
+
+    public String getBuildTime() {
+        return buildTime;
+    }
+
+    public void setBuildTime(String buildTime) {
+        this.buildTime = buildTime;
+    }
+
+    public String getDeployTime() {
+        return deployTime;
+    }
+
+    public void setDeployTime(String deployTime) {
+        this.deployTime = deployTime;
+    }
+
+    public String getGitRevision() {
+        return gitRevision;
+    }
+
+    public void setGitRevision(String gitRevision) {
+        this.gitRevision = gitRevision;
+    }
+
+    public String getGitBranch() {
+        return gitBranch;
+    }
+
+    public void setGitBranch(String gitBranch) {
+        this.gitBranch = gitBranch;
+    }
+
+    public String getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
 }
