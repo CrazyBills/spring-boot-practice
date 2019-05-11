@@ -4,6 +4,7 @@ import com.ecommerce.order.BaseApiTest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.core.Is.is;
 
 class AboutControllerApiTest extends BaseApiTest {
 
@@ -14,7 +15,8 @@ class AboutControllerApiTest extends BaseApiTest {
                 .get("/about")
                 .then()
                 .statusCode(200)
-                .body("deployTime", containsString("Asia/Shanghai"));
+                .body("deployTime", containsString("Asia/Shanghai"))
+                .body("author", is("tw"));
     }
 
 

@@ -31,23 +31,9 @@ public class ProductController {
     @ResponseStatus(CREATED)
     public ImmutableMap<String, String> createProduct(@RequestBody @Valid CreateProductCommand command) {
 
-
         Product product = Product.create(command.getName(), command.getDescription(), command.getPrice());
 
         return ImmutableMap.of("id", productApplicationService.createProduct(product).getId());
-    }
-
-    @GetMapping
-    public PagedResource<ProductSummaryRepresentation> pagedProducts(@RequestParam(required = false, defaultValue = "1") int pageIndex,
-                                                                     @RequestParam(required = false, defaultValue = "10") int pageSize) {
-        return productApplicationService.listProduct(pageIndex, pageSize)
-                .map(it -> new ProductSummaryRepresentation(it.getId().toString(), it.getName(), it.getPrice()));
-    }
-
-
-    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_UTF8_VALUE)
-    public Product byId(@PathVariable(name = "id") String id) {
-        return productApplicationService.getById(id);
     }
 
 }

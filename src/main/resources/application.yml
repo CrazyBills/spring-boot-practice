@@ -7,3 +7,6 @@ logging:
     file: "%date{yyyy-MM-dd HH:mm:ss.SSS,Asia/Shanghai} %X{requestId}-%X{userId} %highlight(%-5level) %logger{36} : %m%n%wEx"
 
 
+application:
+  about:
+    author: tw

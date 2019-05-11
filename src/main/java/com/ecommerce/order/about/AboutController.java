@@ -1,5 +1,6 @@
 package com.ecommerce.order.about;
 
+import com.ecommerce.order.common.utils.AboutConfig;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,11 @@ public class AboutController {
 
     private Environment environment;
 
-    public AboutController(Environment environment) {
+    private final AboutConfig aboutConfig;
+
+    public AboutController(Environment environment, AboutConfig aboutConfig) {
         this.environment = environment;
+        this.aboutConfig = aboutConfig;
     }
 
     @GetMapping
@@ -29,7 +33,9 @@ public class AboutController {
 
         String activeProfiles = Arrays.toString(environment.getActiveProfiles());
         String deployTime = this.deployTime.toString();
-        return new AboutRepresentation(buildNumber, buildTime, deployTime, gitRevision, gitBranch, activeProfiles);
+        String author = aboutConfig.getAuthor();
+        return new AboutRepresentation(buildNumber, buildTime, deployTime,
+                gitRevision, gitBranch, activeProfiles, author);
     }
 
 }

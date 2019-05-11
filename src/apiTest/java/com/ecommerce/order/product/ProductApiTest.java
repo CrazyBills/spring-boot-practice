@@ -28,7 +28,7 @@ class ProductApiTest extends BaseApiTest {
                 .extract().body().jsonPath().getString("id");
         Product product = repository.byId(productId(id));
         assertNotNull(product);
-        assertEquals(id, product.getId().toString());
+        assertEquals(id, product.getId());
     }
 
     @Test
